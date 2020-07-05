@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Século - Refeição</title>
+    <style>
+        *, *::before, *::after{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e9ecef;
+        }
+        .main-app{
+            max-width: 100%;
+            min-height: 100%;
+            position: relative;
+        }
+        .sessao-100{
+            display: block;
+            width: 100%;  
+            height: 100vh;
+            text-align: center;
+            overflow-y: scroll;
+        }
+        .container-80-white{
+            background-color: #FFF;
+            border-radius:9px;
+            margin:3%;
+        }
+        .container-80-transparet{
+            background-color: transparent;
+            margin:3%;
+            text-align: center;
+        }
+        .content-text-date{
+            font-size:2.5rem;
+            font-weight: bold;
+            color:#111;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .content-text-time{
+            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color:#cc0000;
+        }
+        .content-text-p{
+            display: inline-block;
+            margin-left: 40px;
+            vertical-align: middle;
+            font-size:1.5rem;
+            color:#111;
+        }
+        .round {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+        }
+        .round label {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            height: 40px;
+            width: 40px;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+        .round label:after {
+            border: 8px solid #fff;
+            border-top: none;
+            border-right: none;
+            content: "";
+            height: 16px;
+            left: 7px;
+            opacity: 0;
+            position: absolute;
+            top: 8px;
+            transform: rotate(-45deg);
+            width: 24px;
+        }
+        .round input[type="checkbox"] {
+            visibility: hidden;
+        }
+        .round input[type="checkbox"]:checked + label {
+            background-color: #FECA31;
+            border-color: #FECA31;
+        }
+        .round input[type="checkbox"]:checked + label:after {
+            opacity: 1;
+        }
+        .check-circulo{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            background-color: transparent;
+            border:3px solid #cc0000;
+            border-radius:100%;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            position: relative;
+            text-decoration: none;
+            /* box-shadow: 1px 5px 5px 15px #dbdbdb; */
+            text-transform: uppercase;
+            margin:3% 0;
+        }
+        .check-circulo:hover{
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            background-color: #cc0000;
+        }
+        .check-circulo:hover span{
+            color:#FFF;
+        }
+        .check-circulo span{
+            color:#cc0000;
+            text-decoration: none;
+            font-size:1.5rem;
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .rodape{
+            width: 100%;
+            background-color: #1B2842;
+        }
+        .rodape-menu{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row wrap;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .rodape-menu-item{
+            width: 50%;
+            height: auto;
+            display: block;
+            background-color: #1B2842;
+            color:#FFF;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            border-right: 1px solid #2e3e5e;
+            text-decoration: none;
+            padding:3% 0;
+        }
+        .rodape-menu-item:hover{
+            background-color: #2e3e5e;
+        }
+        .rodape-menu-item:last-child{
+            border-right: 0;
+        }
+        .fixo{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-app">
+
+        <div class="sessao-100">
+            
+            <div class="container-80-transparet">
+
+            </div>
+
+            <div class="container-80-transparet">               
+                <!-- <div class="round">
+                        <input type="checkbox" id="checkbox"/>
+                        <label for="checkbox"></label>
+                </div> -->
+                <div class="content-text-dia">
+                    <div class="content-text-date"><?= date('d/m/Y'); ?></div>
+                    <div class="content-text-time">00:00:00</div>
+                </div>
+                <div class="content-text-p">
+                    Você tem até <strong>09:00 Horas</strong> para CONFIRMAR SUA REFEIÇÃO
+                </div>
+            </div>
+            
+            <a href="#" class="check-circulo">
+                <span>Confirmar Almoço</span>
+            </a>
+
+        
+            
+        </div>
+
+        <div class="rodape fixo">
+            <div class="rodape-menu">
+                <a href="" class="rodape-menu-item">
+                    Inicio
+                </a>
+                <a href="" class="rodape-menu-item">
+                    Cardápio de Hoje
+                </a>
+                <a href="" class="rodape-menu-item">
+                    Isentar Almoço
+                </a>
+                <a href="" class="rodape-menu-item">
+                    Listar
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
